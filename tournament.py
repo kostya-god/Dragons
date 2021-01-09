@@ -2,6 +2,7 @@
 # license: GPLv3
 from enemies import *
 from hero_classes import *
+from shop import *
 
 def annoying_input_int(message =''):
     answer = None
@@ -30,10 +31,13 @@ def game_tournament(hero, dragon_list):
             break
         print('Дракон', dragon._color, 'повержен!\n')
         hero._experience+=10*hero._importance
+        hero._money += 100 * hero._importance
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
         print('Ваш накопленный опыт:', hero._experience)
+        print('Ваши накопленные деньги:', hero._money)
+        shop(hero)
     else:
         print('К сожалению, Вы проиграли...')
 
@@ -54,10 +58,13 @@ def game_trollnament(hero, troll_list):
             break
         print('Тролль', troll._color, 'затроллен!\n')
         hero._experience+=20*hero._importance
+        hero._money+=100*hero._importance
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
         print('Ваш накопленный опыт:', hero._experience)
+        print('Ваши накопленные деньги:', hero._money)
+        shop(hero)
     else:
         print('К сожалению, Вас сожрали...')
 
