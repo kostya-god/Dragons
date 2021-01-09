@@ -10,12 +10,14 @@ from gameunit import *
 
 class Hero(Attacker):
     def __init__(self, name):
+        self._beauty = 0
+        self._speed = 0
         self._health = 0
         self._attack = 0
         self._experience = 0
         self._name = name
         self._importance = 0
-        self._money = 0
+        self._money = 100
 class Wizard(Hero):
         '''Возможно добавление скиллов'''
 class Healer(Hero):
