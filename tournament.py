@@ -14,7 +14,7 @@ def annoying_input_int(message =''):
     return answer
 
 
-def game_tournament(hero, dragon_list):
+def game_tournament(hero, dragon_list,class_name):
     for dragon in dragon_list:
         print('Вышел', dragon._color, 'дракон!')
         while dragon.is_alive() and hero.is_alive():
@@ -37,11 +37,11 @@ def game_tournament(hero, dragon_list):
         print('Поздравляем! Вы победили!')
         print('Ваш накопленный опыт:', hero._experience)
         print('Ваши накопленные деньги:', hero._money)
-        shop(hero, hero._type)
+        shop(hero,class_name)
     else:
         print('К сожалению, Вы проиграли...')
 
-def game_trollnament(hero, troll_list):
+def game_trollnament(hero, troll_list, class_name):
     for troll in troll_list:
         print('Вышел', troll._color, 'тролль!')
         while troll.is_alive() and hero.is_alive():
@@ -64,7 +64,7 @@ def game_trollnament(hero, troll_list):
         print('Поздравляем! Вы победили!')
         print('Ваш накопленный опыт:', hero._experience)
         print('Ваши накопленные деньги:', hero._money)
-        shop(hero, hero._type)
+        shop(hero,class_name)
     else:
         print('К сожалению, Вас сожрали...')
 
@@ -89,43 +89,39 @@ def start_game():
         print('Выберете класс(Wizard(75,120), Healer(50,50), Jagernaut(120,60), Imba(1000,1000)): ', end='')
         class_name = input()
         if class_name == 'Wizard':
-            hero = Hero(name)
+            hero = Wizard(name)
             hero._health = 75
             hero._attack = 120
             hero._importance = 1.5
-            hero._type = 'Wizard'
         if class_name == 'Jagernaut':
-            hero = Hero(name)
+            hero = Jagernaut(name)
             hero._health = 125
             hero._attack = 60
             hero._importance = 1.15
-            hero._type = 'Jagernaut'
         if class_name == 'Healer':
-            hero = Hero(name)
+            hero = Healer(name)
             hero._health = 50
             hero._attack = 50
             hero._importance = 10
-            hero._type = 'Healer'
         if class_name == 'Imba':
-            hero = Hero(name)
+            hero = Imba(name)
             hero._health = 1000
             hero._attack = 1000
             hero._importance = 5
-            hero._type = 'Imba'
         hero._money = 100
         hero._experience = 0
 
-        print('Приветствую тебя, ',hero._type, hero._name,'!')
+        print('Приветствую тебя, ',class_name, hero._name,'!')
         if randint(1,2)==1:
             dragon_number = randint(2,15)
             dragon_list = generate_dragon_list(dragon_number)
             print('У Вас на пути', dragon_number, rod_dragon(dragon_number)+'!')
-            game_tournament(hero, dragon_list)
+            game_tournament(hero, dragon_list,class_name)
         else:
             troll_number = randint(2,15)
             troll_list = generate_troll_list(troll_number)
             print('Вам не дают пройти', troll_number, rod_troll(troll_number)+'!')
-            game_trollnament(hero, troll_list)
+            game_trollnament(hero, troll_list,class_name)
 
     except EOFError:
         print('Поток ввода закончился. Извините, принимать ответы более невозможно.')
