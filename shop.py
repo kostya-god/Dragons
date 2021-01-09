@@ -4,9 +4,9 @@ from tournament import *
 from hero_classes import *
 from artifacts import *
 
-def shop(hero):
+def shop(hero, class_name):
     money = hero._money
-    print('Вы посетили магазин. На вашем счету {} денег'.format(money))
+    print('Приветствую, могучий',class_name, hero._name, 'Вы посетили магазин. На вашем счету {} денег'.format(money))
     print('Ваш инвентарь:')
     artifacts= generate_artifacts()
     for artifact in artifacts:
