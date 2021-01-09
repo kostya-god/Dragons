@@ -16,7 +16,14 @@ class Hero(Attacker):
         self._name = name
         self._importance = 0
         self._money = 0
-        self._type = ''
+class Wizard(Hero):
+        '''Возможно добавление скиллов'''
+class Healer(Hero):
+        '''Возможно добавление скиллов'''
+class Jagernaut(Hero):
+        '''Возможно добавление скиллов'''
+class Imba(Hero):
+        '''Возможно добавление скиллов'''
 
 
 
