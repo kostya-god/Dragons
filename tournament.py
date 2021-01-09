@@ -87,16 +87,16 @@ def start_game():
         print('Представьтесь, пожалуйста: ', end = '')
         name = input()
         print('Выберете класс(Wizard(75,120), Healer(50,50), Jagernaut(120,60), Imba(1000,1000)): ', end='')
-        answer = input()
-        if answer == 'Wizard':
+        class_name = input()
+        if class_name == 'Wizard':
             hero = Wizard(name)
-        if answer == 'Healer':
+        if class_name == 'Healer':
             hero = Healer(name)
-        if answer == 'Healer':
+        if class_name == 'Healer':
             hero = Healer(name)
-        if answer == 'Imba':
+        if class_name == 'Imba':
             hero = Imba(name)
-
+        print('Приветствую тебя, ',class_name, hero._name,'!')
         if randint(1,2)==1:
             dragon_number = randint(2,15)
             dragon_list = generate_dragon_list(dragon_number)
