@@ -15,6 +15,7 @@ class Wizard(Attacker):
         self._experience = 0
         self._name = name
         self._importance = 1.5
+        self._money = 100
 class Healer(Attacker):
     def __init__(self, name):
         self._health = 50
@@ -22,6 +23,7 @@ class Healer(Attacker):
         self._experience = 0
         self._name = name
         self._importance = 0.5
+        self._money = 100
 class Jagernaut(Attacker):
     def __init__(self, name):
         self._health = 125
@@ -29,6 +31,7 @@ class Jagernaut(Attacker):
         self._experience = 0
         self._name = name
         self._importance = 1.15
+        self._money = 100
 class Imba(Attacker):
     def __init__(self, name):
         self._health = 1000
@@ -36,6 +39,7 @@ class Imba(Attacker):
         self._experience = 0
         self._name = name
         self._importance = 5
+        self._money = 100
 
 
 def attack(self, target):
