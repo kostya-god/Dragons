@@ -29,7 +29,7 @@ def game_tournament(hero, dragon_list):
         if dragon.is_alive():
             break
         print('Дракон', dragon._color, 'повержен!\n')
-        hero._experience+=10
+        hero._experience+=10*hero._importance
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
@@ -53,7 +53,7 @@ def game_trollnament(hero, troll_list):
         if troll.is_alive():
             break
         print('Тролль', troll._color, 'затроллен!\n')
-        hero._experience+=20
+        hero._experience+=20*hero._importance
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
