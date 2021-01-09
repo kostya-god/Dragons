@@ -8,39 +8,15 @@ from gameunit import *
 Метод attack должен получать атрибут target и уменьшать его здоровье на величину атаки.
 """
 
-class Wizard(Attacker):
+class Hero(Attacker):
     def __init__(self, name):
-        self._health = 75
-        self._attack = 125
+        self._health = 0
+        self._attack = 0
         self._experience = 0
         self._name = name
-        self._importance = 1.5
-        self._money = 100
-class Healer(Attacker):
-    def __init__(self, name):
-        self._health = 50
-        self._attack = 50
-        self._experience = 0
-        self._name = name
-        self._importance = 0.5
-        self._money = 100
-class Jagernaut(Attacker):
-    def __init__(self, name):
-        self._health = 125
-        self._attack = 60
-        self._experience = 0
-        self._name = name
-        self._importance = 1.15
-        self._money = 100
-class Imba(Attacker):
-    def __init__(self, name):
-        self._health = 1000
-        self._attack = 1000
-        self._experience = 0
-        self._name = name
-        self._importance = 5
-        self._money = 100
+        self._importance = 0
+        self._money = 0
+        self._type = ''
 
 
-def attack(self, target):
-    target._health -= self._attack
+
