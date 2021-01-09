@@ -31,13 +31,13 @@ def game_tournament(hero, dragon_list):
             break
         print('Дракон', dragon._color, 'повержен!\n')
         hero._experience+=10*hero._importance
-        hero._money += 100 * hero._importance
+        hero._money += 100 / hero._importance
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
         print('Ваш накопленный опыт:', hero._experience)
         print('Ваши накопленные деньги:', hero._money)
-        shop(hero)
+        shop(hero, hero._type)
     else:
         print('К сожалению, Вы проиграли...')
 
@@ -58,13 +58,13 @@ def game_trollnament(hero, troll_list):
             break
         print('Тролль', troll._color, 'затроллен!\n')
         hero._experience+=20*hero._importance
-        hero._money+=100*hero._importance
+        hero._money+=100/hero._importance
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
         print('Ваш накопленный опыт:', hero._experience)
         print('Ваши накопленные деньги:', hero._money)
-        shop(hero)
+        shop(hero, hero._type)
     else:
         print('К сожалению, Вас сожрали...')
 
@@ -89,14 +89,33 @@ def start_game():
         print('Выберете класс(Wizard(75,120), Healer(50,50), Jagernaut(120,60), Imba(1000,1000)): ', end='')
         class_name = input()
         if class_name == 'Wizard':
-            hero = Wizard(name)
+            hero = Hero(name)
+            hero._health = 75
+            hero._attack = 120
+            hero._importance = 1.5
+            hero._type = 'Wizard'
+        if class_name == 'Jagernaut':
+            hero = Hero(name)
+            hero._health = 125
+            hero._attack = 60
+            hero._importance = 1.15
+            hero._type = 'Jagernaut'
         if class_name == 'Healer':
-            hero = Healer(name)
-        if class_name == 'Healer':
-            hero = Healer(name)
+            hero = Hero(name)
+            hero._health = 50
+            hero._attack = 50
+            hero._importance = 10
+            hero._type = 'Healer'
         if class_name == 'Imba':
-            hero = Imba(name)
-        print('Приветствую тебя, ',class_name, hero._name,'!')
+            hero = Hero(name)
+            hero._health = 1000
+            hero._attack = 1000
+            hero._importance = 5
+            hero._type = 'Imba'
+        hero._money = 100
+        hero._experience = 0
+
+        print('Приветствую тебя, ',hero._type, hero._name,'!')
         if randint(1,2)==1:
             dragon_number = randint(2,15)
             dragon_list = generate_dragon_list(dragon_number)
