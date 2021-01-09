@@ -22,7 +22,12 @@ def shop(hero, class_name):
             if artifacts[number - 1]._amount !=0:
                 hero._money+=artifacts[number-1]._cost
                 artifacts[number - 1]._amount -= 1
+                hero._beauty -=artifacts[number-1]._valueb
+                hero._speed -=artifacts[number-1]._values
+                hero._health -=artifacts[number-1]._valueh
+                hero._attack -=artifacts[number-1]._valuea
                 print('Вы продали {}. Теперь на вашем счету {} денег'.format(artifacts[number - 1]._name,hero._money))
+                print('Теперь ваши характеристики : Красота ->', hero._beauty, 'Скорость ->', hero._speed,'Здоровье ->', hero._health,'Атака ->', hero._attack )
             else:
                 print('Вы не можете продать этот предмет, так как у вас его нет')
 
@@ -30,16 +35,23 @@ def shop(hero, class_name):
     for nomer, artifact in enumerate(artifacts):
         print('{}.{} за {}'.format(nomer + 1, artifact._name, artifact._cost))
     while True:
-        print('Выберите номер артефакта, который хотите приобрести или 0, если хотите покинуть магазин.')
+        print('Выберите номер артефакта, который хотите приобрести, чтобы продать, или 0, если хотите покинуть магазин.')
         number=check_number_3()
         if number==0:
             print('Выхожу из магазина')
             break
+
+
         else:
             if hero._money>=artifacts[number-1]._cost:
                 artifacts[number - 1]._amount+=1
                 hero._money-=artifacts[number-1]._cost
+                hero._beauty += artifacts[number - 1]._valueb
+                hero._speed += artifacts[number - 1]._values
+                hero._health += artifacts[number - 1]._valueh
+                hero._attack += artifacts[number - 1]._valuea
                 print('Вы купили {}'.format(artifacts[number-1]._name))
+                print('Теперь ваши характеристики : Красота ->',hero._beauty,'Скорость ->',hero._speed,'Здоровье ->',hero._health ,'Атака ->', hero._attack )
             else:
                 print('У вас не хватает денег на этот артефакт')
 
@@ -78,7 +90,7 @@ def check_number_2():
 
 def check_number_3():
     number = None
-    correct_numbers = [0, 1, 2, 3, 4, 5]
+    correct_numbers = [0, 1, 2, 3, 4, 5,9]
     while number == None:
         try:
             number = int(input())
