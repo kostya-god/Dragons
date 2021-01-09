@@ -108,8 +108,7 @@ def start_game():
             hero._health = 1000
             hero._attack = 1000
             hero._importance = 5
-        hero._money = 100
-        hero._experience = 0
+
 
         print('Приветствую тебя, ',class_name, hero._name,'!')
         if randint(1,2)==1:
